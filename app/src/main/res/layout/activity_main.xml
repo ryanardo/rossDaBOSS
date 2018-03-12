@@ -15,6 +15,7 @@
         android:scaleType="centerCrop" />
 
     <TextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -23,7 +24,9 @@
         android:text="MyRestaurants"
         android:textColor="@color/colorTextIcons"
         android:textSize="40sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:id="@+id/appNameTextView" />
+
 
     <EditText
         android:layout_width="wrap_content"
@@ -34,8 +37,7 @@
         android:layout_marginBottom="10dp"
         android:padding="5dp"
         android:hint="Enter Zip Code"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/findRestaurantsButton"
@@ -45,6 +47,6 @@
         android:layout_centerHorizontal="true"
         android:text="Find Restaurants"
         android:background="@color/colorAccent"
-        android:textColor="@color/colorTextIcons"/>
+        android:textColor="@color/colorTextIcons" />
 
 </RelativeLayout>
