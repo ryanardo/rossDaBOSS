@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyRestaurants.iml" filepath="$PROJECT_DIR$/MyRestaurants.iml" />
-      <module fileurl="file://C:\Users\Adam\Desktop\epicodus\ANDROID\MyRestaurants\MyRestaurants.iml" filepath="C:\Users\Adam\Desktop\epicodus\ANDROID\MyRestaurants\MyRestaurants.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyRestaurants.iml" filepath="$PROJECT_DIR$/MyRestaurants.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Adam\Desktop\epicodus\ANDROID\MyRestaurants\app\app.iml" filepath="C:\Users\Adam\Desktop\epicodus\ANDROID\MyRestaurants\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
