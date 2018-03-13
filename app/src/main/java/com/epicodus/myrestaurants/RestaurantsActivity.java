@@ -11,9 +11,15 @@ import android.widget.Toast;
 import android.widget.AdapterView;
 import android.view.View;
 
+import butterknife.ButterKnife;
+import butterknife.Bind;
+
 public class RestaurantsActivity extends AppCompatActivity {
-    private TextView mLocationTextView;
-    private ListView mListView;
+//    private TextView mLocationTextView;
+//    private ListView mListView;
+
+    @Bind(R.id.locationTextView) TextView mLocationTextView;
+    @Bind(R.id.listView) ListView mListView;
 
     private String[] restaurants = new String[] {
             "The Meat Dimension", "Moe's", "The Angry Dwarf", "The Broken Drum", "The Mended Drum",
@@ -26,8 +32,7 @@ public class RestaurantsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurants);
 
-        mListView = (ListView) findViewById(R.id.listView);
-        mLocationTextView = (TextView) findViewById(R.id.locationTextView);
+        ButterKnife.bind(this);
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, restaurants);
         mListView.setAdapter(adapter);
