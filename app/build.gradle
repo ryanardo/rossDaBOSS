@@ -22,6 +22,11 @@ android {
         mavenCentral()
         jcenter()
     }
+    testOptions{
+        unitTests{
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -40,4 +45,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'org.robolectric:robolectric:3.0'
     testCompile 'org.robolectric:shadows-support-v4:3.0'
+    testImplementation "org.robolectric:robolectric:3.7.1"
 }
