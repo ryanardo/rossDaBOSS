@@ -3,7 +3,6 @@ package com.epicodus.myrestaurants;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,13 +10,8 @@ import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.BindView;
-//import butterknife.Bind;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String TAG = MainActivity.class.getSimpleName();
-//    private Button mFindRestaurantsButton;
-//    private EditText mLocationEditText;
-//    private TextView mAppNameTextView;
 
     @BindView(R.id.findRestaurantsButton) Button mFindRestaurantsButton;
     @BindView(R.id.locationEditText) EditText mLocationEditText;
