@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.view.View;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -27,17 +28,7 @@ public class RestaurantsActivity extends AppCompatActivity {
     @BindView(R.id.locationTextView) TextView mLocationTextView;
     @BindView(R.id.listView) ListView mListView;
 
-    private String[] restaurants = new String[] {
-            "The Meat Dimension", "Moe's", "The Angry Dwarf", "The Broken Drum", "The Mended Drum",
-            "Dibbler's", "Ctrl Alt Deli", "Zonie's", "Duckberger", "Small Pharaoh", "Meno's",
-            "The Block", "Goodfellows Pizza", "Mama Gkika's", "15 Teatime Lane", "Sixteen Tons", "Club 17"
-    };
-
-    private String[] cuisines = new String[] {
-            "Meat", "Bar Food", "Sandwiches", "Alcohol", "Booze", "Meat Pies", "Sandwiches", "Calzones",
-            "Burgers", "Mediterranean", "Mediterranean", "Sandwiches", "Pizza", "Bar Fights", "Cafe",
-            "Burgers", "Cocktails"
-    };
+    public ArrayList<Restaurant> restaurants = new ArrayList<>();
 
 
     @Override
@@ -47,17 +38,6 @@ public class RestaurantsActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, restaurants);
-        MyRestaurantsArrayAdapter adapter = new MyRestaurantsArrayAdapter(this, android.R.layout.simple_list_item_1, restaurants, cuisines);
-        mListView.setAdapter(adapter);
-
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-           @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
-               String restaurant = ((TextView)view).getText().toString();
-               Toast.makeText(RestaurantsActivity.this, restaurant, Toast.LENGTH_LONG).show();
-           }
-        });
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
@@ -76,19 +56,38 @@ public class RestaurantsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
-                } catch (IOException e) {
-                    e.printStackTrace();
+                public void onResponse(Call call, Response response) {
+                restaurants = yelpService.processResults(response);
+
+                RestaurantsActivity.this.runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        String[] restaurantNames = new String[restaurants.size()];
+                        for (int i = 0; i < restaurantNames.length; i++) {
+                            restaurantNames[i] = restaurants.get(i).getName();
+                        }
+
+                        ArrayAdapter adapter = new ArrayAdapter(RestaurantsActivity.this,
+                                android.R.layout.simple_list_item_1, restaurantNames);
+                        mListView.setAdapter(adapter);
+
+                        for (Restaurant restaurant : restaurants) {
+                            Log.d(TAG, "Name: " + restaurant.getName());
+                            Log.d(TAG, "Phone: " + restaurant.getPhone());
+                            Log.d(TAG, "Website: " + restaurant.getWebsite());
+                            Log.d(TAG, "Image url: " + restaurant.getImageUrl());
+                            Log.d(TAG, "Rating: " + Double.toString(restaurant.getRating()));
+                            Log.d(TAG, "Address: " + android.text.TextUtils.join(", ", restaurant.getAddress()));
+                            Log.d(TAG, "Categories: " + restaurant.getCategories().toString());
+                        }
+                    }
+
+
+                    });
                 }
-            }
+            });
 
-
-
-        });
     }
-
 
 }
