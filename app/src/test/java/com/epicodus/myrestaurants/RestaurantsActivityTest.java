@@ -1,6 +1,7 @@
 package com.epicodus.myrestaurants;
 
-import android.content.Intent;
+import com.epicodus.myrestaurants.ui.RestaurantsActivity;
+
 import android.os.Build;
 import android.widget.ListView;
 

@@ -1,5 +1,8 @@
 package com.epicodus.myrestaurants;
 
+import com.epicodus.myrestaurants.ui.MainActivity;
+import com.epicodus.myrestaurants.ui.RestaurantsActivity;
+
 import android.content.Intent;
 import android.os.Build;
 import android.widget.TextView;
