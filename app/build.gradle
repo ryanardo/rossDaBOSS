@@ -57,4 +57,6 @@ dependencies {
     testImplementation "org.robolectric:robolectric:3.7.1"
     compile 'com.android.support:recyclerview-v7:26.+'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'org.parceler:parceler-api:1.1.6'
+    annotationProcessor 'org.parceler:parceler:1.1.6'
 }
