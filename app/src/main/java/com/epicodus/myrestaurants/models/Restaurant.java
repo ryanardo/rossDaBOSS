@@ -26,11 +26,17 @@ public class Restaurant {
         this.website = website;
         this.rating = rating;
         this.imageUrl = imageUrl;
+//        this.imageUrl = getLargeImageUrl(imageUrl);
         this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
         this.categories = categories;
     }
+
+//    public String getLargeImageUrl(String imageUrl){
+//        String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
+//        return largeImageUrl;
+//    }
 
     public String getName() {
         return name;

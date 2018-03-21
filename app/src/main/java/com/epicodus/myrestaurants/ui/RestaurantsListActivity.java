@@ -71,15 +71,15 @@ public class RestaurantsListActivity extends AppCompatActivity {
                         mRecyclerView.setHasFixedSize(true);
 
 
-                        for (Restaurant restaurant : restaurants) { //testing purposes only
-                            Log.d(TAG, "Name: " + restaurant.getName());
-                            Log.d(TAG, "Phone: " + restaurant.getPhone());
-                            Log.d(TAG, "Website: " + restaurant.getWebsite());
-                            Log.d(TAG, "Image url: " + restaurant.getImageUrl());
-                            Log.d(TAG, "Rating: " + Double.toString(restaurant.getRating()));
-                            Log.d(TAG, "Address: " + android.text.TextUtils.join(", ", restaurant.getAddress()));
-                            Log.d(TAG, "Categories: " + restaurant.getCategories().toString());
-                        }
+//                        for (Restaurant restaurant : restaurants) { //testing purposes only
+//                            Log.d(TAG, "Name: " + restaurant.getName());
+//                            Log.d(TAG, "Phone: " + restaurant.getPhone());
+//                            Log.d(TAG, "Website: " + restaurant.getWebsite());
+//                            Log.d(TAG, "Image url: " + restaurant.getImageUrl());
+//                            Log.d(TAG, "Rating: " + Double.toString(restaurant.getRating()));
+//                            Log.d(TAG, "Address: " + android.text.TextUtils.join(", ", restaurant.getAddress()));
+//                            Log.d(TAG, "Categories: " + restaurant.getCategories().toString());
+//                        }
                     }
 
 
