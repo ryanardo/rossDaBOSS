@@ -130,7 +130,6 @@ public class RestaurantsListActivity extends AppCompatActivity {
                     });
                 }
             });
-
     }
 
     private void addToSharedPreferences(String location) {
