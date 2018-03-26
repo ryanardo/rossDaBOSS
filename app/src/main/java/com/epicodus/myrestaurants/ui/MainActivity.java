@@ -1,7 +1,5 @@
 package com.epicodus.myrestaurants.ui;
 
-
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -35,12 +33,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ValueEventListener mSearchedLocationReferenceListener;
 
     @BindView(R.id.findRestaurantsButton) Button mFindRestaurantsButton;
-    @BindView(R.id.locationEditText) EditText mLocationEditText;
+    @BindView(R.id.appNameTextView) TextView mAppNameText;
     @BindView(R.id.savedRestaurantsButton) Button mSavedRestaurantsButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         mSearchedLocationReference = FirebaseDatabase
                 .getInstance()
@@ -64,11 +65,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-
 //        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 //        mEditor = mSharedPreferences.edit();
 
@@ -79,17 +75,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v){
         if(v == mFindRestaurantsButton){
-            String location = mLocationEditText.getText().toString();
-            saveLocationToFirebase(location);
-
-//            if(!(location).equals("")) {
-//                addToSharedPreferences(location);
-//            }
-
             Intent intent = new Intent(MainActivity.this, RestaurantsListActivity.class);
-            intent.putExtra("location", location);
             startActivity(intent);
-        } if (v == mSavedRestaurantsButton) {
+        }
+        if (v == mSavedRestaurantsButton) {
             Intent intent = new Intent(MainActivity.this, SavedRestaurantListActivity.class);
             startActivity(intent);
         }

@@ -30,7 +30,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.myrestaurants.ui.RestaurantsListActivity" />
         </activity>
-        <activity android:name=".adapters.SavedRestaurantListActivity"></activity>
+        <activity android:name=".adapters.SavedRestaurantListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.myrestaurants.ui.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
