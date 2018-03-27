@@ -32,14 +32,14 @@ import okhttp3.Response;
 
 public class RestaurantsListActivity extends AppCompatActivity {
     public static final String TAG = RestaurantsListActivity.class.getSimpleName();
-    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
-    private RestaurantListAdapter mAdapter;
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
     private String mRecentAddress;
 
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
 
 
+    private RestaurantListAdapter mAdapter;
     public ArrayList<Restaurant> restaurants = new ArrayList<>();
 
 
@@ -48,7 +48,6 @@ public class RestaurantsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurants);
         ButterKnife.bind(this);
-
 
 
         Intent intent = getIntent();
@@ -99,8 +98,12 @@ public class RestaurantsListActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
     private void getRestaurants(String location) {
+
         final YelpService yelpService = new YelpService();
+
         yelpService.findRestaurants(location, new Callback() {
 
             @Override
@@ -109,8 +112,10 @@ public class RestaurantsListActivity extends AppCompatActivity {
             }
 
             @Override
-                public void onResponse(Call call, Response response) {
+            public void onResponse(Call call, Response response) throws IOException {
+                System.out.println(response);
                 restaurants = yelpService.processResults(response);
+
 
                 RestaurantsListActivity.this.runOnUiThread(new Runnable() {
 
@@ -122,16 +127,11 @@ public class RestaurantsListActivity extends AppCompatActivity {
                                 new LinearLayoutManager(RestaurantsListActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
-
-
                     }
-
-
-                    });
-                }
-            });
+                });
+            }
+        });
     }
-
     private void addToSharedPreferences(String location) {
         mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
     }

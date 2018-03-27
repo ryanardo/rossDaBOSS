@@ -1,6 +1,8 @@
 package com.epicodus.myrestaurants.services;
 
 
+import android.util.Log;
+
 import com.epicodus.myrestaurants.Constants;
 import com.epicodus.myrestaurants.models.Restaurant;
 
@@ -28,7 +30,7 @@ public class YelpService {
         urlBuilder.addQueryParameter(Constants.YELP_LOCATION_QUERY_PARAMETER, location);
         String url = urlBuilder.build().toString();
 
-        Request request= new Request.Builder()
+        Request request = new Request.Builder()
                 .url(url)
                 .header("Authorization", Constants.YELP_TOKEN)
                 .build();
@@ -40,13 +42,18 @@ public class YelpService {
     public ArrayList<Restaurant> processResults(Response response) {
         ArrayList<Restaurant> restaurants = new ArrayList<>();
 
+
         try {
             String jsonData = response.body().string();
+            System.out.println(jsonData + "token missing");
             JSONObject yelpJSON = new JSONObject(jsonData);
+
             JSONArray businessesJSON = yelpJSON.getJSONArray("businesses");
             for (int i = 0; i < businessesJSON.length(); i++) {
                 JSONObject restaurantJSON = businessesJSON.getJSONObject(i);
                 String name = restaurantJSON.getString("name");
+                Log.d("name", name);
+                Log.d("something", "something");
                 String phone = restaurantJSON.optString("display_phone", "Phone not available");
                 String website = restaurantJSON.getString("url");
                 double rating = restaurantJSON.getDouble("rating");
