@@ -14,7 +14,7 @@
         <activity
             android:name=".ui.MainActivity">
         </activity>
-        <activity android:name=".ui.RestaurantsListActivity">
+        <activity android:name=".ui.RestaurantListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.myrestaurants.ui.MainActivity" />
@@ -22,7 +22,7 @@
         <activity android:name=".ui.RestaurantDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.myrestaurants.ui.RestaurantsListActivity" />
+                android:value="com.epicodus.myrestaurants.ui.RestaurantListActivity" />
         </activity>
         <activity android:name=".ui.SavedRestaurantListActivity">
             <meta-data

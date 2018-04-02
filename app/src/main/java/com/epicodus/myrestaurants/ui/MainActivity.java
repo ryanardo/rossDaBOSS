@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v){
         if(v == mFindRestaurantsButton){
-            Intent intent = new Intent(MainActivity.this, RestaurantsListActivity.class);
+            Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
             startActivity(intent);
         }
         if (v == mSavedRestaurantsButton) {

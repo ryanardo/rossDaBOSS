@@ -1,6 +1,6 @@
 package com.epicodus.myrestaurants;
 
-import com.epicodus.myrestaurants.ui.RestaurantsListActivity;
+import com.epicodus.myrestaurants.ui.RestaurantListActivity;
 
 import android.os.Build;
 import android.widget.ListView;
@@ -19,13 +19,13 @@ import static junit.framework.Assert.assertEquals;
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 @RunWith(RobolectricTestRunner.class)
 
-public class RestaurantsListActivityTest {
-    private RestaurantsListActivity activity;
+public class RestaurantListActivityTest {
+    private RestaurantListActivity activity;
     private ListView mRestaurantListView;
 
     @Before
     public void setup() {
-        activity = Robolectric.setupActivity(RestaurantsListActivity.class);
+        activity = Robolectric.setupActivity(RestaurantListActivity.class);
 //        mRestaurantListView = (ListView) activity.findViewById(R.id.listView);
     }
 
