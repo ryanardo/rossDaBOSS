@@ -24,7 +24,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.myrestaurants.ui.RestaurantsListActivity" />
         </activity>
-        <activity android:name=".adapters.SavedRestaurantListActivity">
+        <activity android:name=".ui.SavedRestaurantListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.myrestaurants.ui.MainActivity" />
